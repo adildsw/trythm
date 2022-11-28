@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="@dimen/box_inset_layout_padding"
+    android:orientation="vertical"
+    android:background="#EEEEEE"
+    tools:context=".MainActivity"
+    tools:deviceIds="wear">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="8dp"
+        android:paddingVertical="6dp"
+        android:text="Settings"
+        android:textColor="#383838"
+        android:textSize="16sp"
+        android:textStyle="bold" />
+
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="#DDDDDD"/>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center">
+
+            <Button
+                android:id="@+id/dataBtn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:backgroundTint="#383838"
+                android:text="Collect Data"
+                android:minHeight="0dp"
+                android:textSize="14sp" />
+
+            <Button
+                android:id="@+id/trainBtn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:backgroundTint="#383838"
+                android:text="Train Model"
+                android:minHeight="0dp"
+                android:textSize="14sp" />
+
+            <Button
+                android:id="@+id/modelStatsBtn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:backgroundTint="#383838"
+                android:text="Model Statistics"
+                android:minHeight="0dp"
+                android:textSize="14sp" />
+
+<!--            <Button-->
+<!--                android:id="@+id/trainNegBtn"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:backgroundTint="#383838"-->
+<!--                android:text="Train Model With Negative Class"-->
+<!--                android:minHeight="0dp"-->
+<!--                android:textSize="14sp" />-->
+
+            <Button
+                android:id="@+id/resetBtn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:backgroundTint="#C2342D"
+                android:text="Reset all settings"
+                android:minHeight="0dp"
+                android:textSize="14sp" />
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</LinearLayout>
