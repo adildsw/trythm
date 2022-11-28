@@ -37,8 +37,11 @@ public class TrainingActivity extends Activity {
 
     private void displayResults() {
         TinyDB tinyDB = new TinyDB(this);
-        String tapAccuracy = tinyDB.getDouble("tapAcc") + "%";
-        String imuAccuracy = tinyDB.getDouble("imuAcc") + "%";
+        // format accuracy to two decimal places
+        double tapAcc = Math.round(tinyDB.getDouble("tapAcc") * 100.0) / 100.0;
+        double imuAcc = Math.round(tinyDB.getDouble("imuAcc") * 100.0) / 100.0;
+        String tapAccuracy = tapAcc + "%";
+        String imuAccuracy = imuAcc + "%";
         binding.tapAccuracy.setText(tapAccuracy);
         binding.imuAccuracy.setText(imuAccuracy);
         binding.trainingLayout.setVisibility(View.GONE);
