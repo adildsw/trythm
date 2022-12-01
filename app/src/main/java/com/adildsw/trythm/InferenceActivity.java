@@ -68,7 +68,7 @@ public class InferenceActivity extends Activity {
                         vibrateWatch();
                         ArrayList<String[]> tapDataStringArray = getTapDataStringArray();
                         double[] res = DataUtils.classifyInstance(InferenceActivity.this, tapDataStringArray, 0);
-                        String[] resDesc = DataUtils.classifiedPattern(InferenceActivity.this, res);
+                        String[] resDesc = DataUtils.classifiedPattern(InferenceActivity.this, res, 0);
                         showResult(resDesc);
                     }
                     else if (count > TOUCH_COUNT_MAX_THRESHOLD) {

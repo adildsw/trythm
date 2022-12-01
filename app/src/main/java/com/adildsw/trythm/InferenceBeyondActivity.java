@@ -78,7 +78,7 @@ public class InferenceBeyondActivity extends Activity implements SensorEventList
                         Log.e("TAP", "TAP " + tapData.size());
                         ArrayList<String[]> tapDataStringArray = getTapDataStringArray();
                         double[] res = DataUtils.classifyInstance(InferenceBeyondActivity.this, tapDataStringArray, 1);
-                        String[] resDesc = DataUtils.classifiedPattern(InferenceBeyondActivity.this, res);
+                        String[] resDesc = DataUtils.classifiedPattern(InferenceBeyondActivity.this, res, 1);
                         showResult(resDesc);
                         Log.e("TAP", "TAP " + Arrays.toString(resDesc));
                     }

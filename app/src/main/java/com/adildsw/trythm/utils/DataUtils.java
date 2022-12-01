@@ -39,7 +39,8 @@ public class DataUtils {
     public static final String[] IMU_ZERO_PAD = { "-1", "-1" };
 
     private static final double NOISE_CONFIDENCE_THRESHOLD = 0.3;
-    private static final double PREDICTION_CONFIDENCE_THRESHOLD = 0.4;
+    private static final double TAP_PREDICTION_CONFIDENCE_THRESHOLD = 0.7;
+    private static final double IMU_PREDICTION_CONFIDENCE_THRESHOLD = 0.5;
 
     public static int getPatternDataCount(Context context, String patternName) {
         String[] files = context.getExternalFilesDir(null).list();
@@ -526,7 +527,7 @@ public class DataUtils {
         return null;
     }
 
-    public static String[] classifiedPattern(Context context, @Nullable double[] classificationResult) {
+    public static String[] classifiedPattern(Context context, @Nullable double[] classificationResult, int modality) {
         if (classificationResult == null) return new String[]{ "negative", "0" };
 
         String[] classes = getClasses(context);
@@ -536,8 +537,9 @@ public class DataUtils {
         }
 
         TinyDB tinyDB = new TinyDB(context);
+        double confidence = modality == 1 ? IMU_PREDICTION_CONFIDENCE_THRESHOLD : TAP_PREDICTION_CONFIDENCE_THRESHOLD;
         if (tinyDB.getBoolean("isNegativeIncluded")) {
-            if (classificationResult[maxIndex] < PREDICTION_CONFIDENCE_THRESHOLD ||
+            if (classificationResult[maxIndex] < confidence ||
             classificationResult[classificationResult.length - 1] > NOISE_CONFIDENCE_THRESHOLD)
                 return new String[]{ "negative", "0" };
         }
